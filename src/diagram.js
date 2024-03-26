@@ -1,8 +1,8 @@
-const { exec } = require("child_process");
+const { execFile } = require("child_process");
 
 function startContainer(userProgram, callback) {
-  exec(
-    "docker run --rm skcheongbrian/gen-step-info " + '"' + userProgram + '"',
+  execFile(
+    "docker", ["run", "--rm", "skcheongbrian/gen-step-info",  userProgram],
     (error, stdout, stderr) => {
       if (error) {
         console.error(`exec error: ${error}`);
